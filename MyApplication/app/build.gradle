@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "com.personal.jmmil.mygolfbuddywithtitle"
+        applicationId "com.personal.jmmil.mygolfbuddy"
         minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
