@@ -1,5 +1,6 @@
 package com.personal.jmmil.mygolfbuddy;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
@@ -13,31 +14,25 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton imageButton1;
-    ImageButton imageButton2;
-    ImageButton imageButton3;
-    ImageButton imageButton4;
+    ImageButton startRoundBtn;
+    ImageButton savedRoundsBtn;
+    ImageButton myStatsBtn;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton imageButton1 = (ImageButton) this.findViewById(R.id.imageButton1);
-        imageButton1.setOnClickListener(buttonListener);
-        imageButton1.setOnTouchListener(new ButtonHighlighterOnTouchListener(imageButton1));
+        startRoundBtn = (ImageButton) this.findViewById(R.id.startRoundBtn);
+        startRoundBtn.setOnClickListener(buttonListener);
+        startRoundBtn.setOnTouchListener(new ButtonHighlighterOnTouchListener(startRoundBtn));
 
-        ImageButton imageButton2 = (ImageButton) this.findViewById(R.id.imageButton2);
-        imageButton2.setOnClickListener(buttonListener);
-        imageButton2.setOnTouchListener(new ButtonHighlighterOnTouchListener(imageButton2));
+        savedRoundsBtn = (ImageButton) this.findViewById(R.id.savedRoundsBtn);
+        savedRoundsBtn.setOnClickListener(buttonListener);
+        savedRoundsBtn.setOnTouchListener(new ButtonHighlighterOnTouchListener(savedRoundsBtn));
 
-        ImageButton imageButton3 = (ImageButton) this.findViewById(R.id.imageButton3);
-        imageButton3.setOnClickListener(buttonListener);
-        imageButton3.setOnTouchListener(new ButtonHighlighterOnTouchListener(imageButton3));
-
-        ImageButton imageButton4 = (ImageButton) this.findViewById(R.id.imageButton4);
-        imageButton4.setOnClickListener(buttonListener);
-        imageButton4.setOnTouchListener(new ButtonHighlighterOnTouchListener(imageButton4));
+        myStatsBtn = (ImageButton) this.findViewById(R.id.myStatsBtn);
+        myStatsBtn.setOnClickListener(buttonListener);
+        myStatsBtn.setOnTouchListener(new ButtonHighlighterOnTouchListener(myStatsBtn));
     }
 
     private View.OnClickListener buttonListener = new View.OnClickListener(){
@@ -69,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 case MotionEvent.ACTION_UP:
 
-                    // Your action here on button click
+                handleTouch(imageButton);
 
                 case MotionEvent.ACTION_CANCEL: {
                     ImageButton view = (ImageButton) v;
@@ -81,6 +76,28 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+
+        private void handleTouch(ImageButton imageButton){
+
+            switch(imageButton.getId()){
+                case R.id.startRoundBtn:
+                    Log.v("msg", "startRoundBtn pressed");
+                    Intent intent = new Intent(imageButton.getContext(),
+                            ScorecardOptionsActivity.class);
+                    startActivity(intent);
+                    break;
+                case R.id.savedRoundsBtn:
+                    Log.v("msg", "savedRoundsBtn pressed");
+                    break;
+                case R.id.myStatsBtn:
+                    Log.v("msg", "myStatsBtn pressed");
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
     }
 
 

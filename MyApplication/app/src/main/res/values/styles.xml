@@ -7,6 +7,23 @@
         <item name="colorPrimaryDark">@color/StatusBarColor</item>
     </style>
 
+    <style name="AppMain" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/Theme.AppTheme.ActionBar</item>
+        <item name="colorPrimary">@color/ActionBarColor</item>
+        <item name="colorPrimaryDark">@color/StatusBarColor</item>
+        <item name="android:background">@drawable/mygolfbuddy</item>
+
+    </style>
+
+    <style name="AppSubPage" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/Theme.AppTheme.ActionBar</item>
+        <item name="colorPrimary">@color/ActionBarColor</item>
+        <item name="colorPrimaryDark">@color/StatusBarColor</item>
+        <item name="android:background">@drawable/mygolfbuddy_nofocus</item>
+
+    </style>
+
+
     <style name="Theme.AppTheme.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/ActionBarColor</item>
     </style>
