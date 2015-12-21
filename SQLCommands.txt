@@ -1,0 +1,109 @@
+1) Create the Database
+
+CREATE DATABASE MyGolfBuddy;
+
+=========================================================================================
+
+2) Create the Player table
+
+CREATE TABLE Player (
+    plyr_id	INTEGER			AUTO_INCREMENT	NOT NULL,
+    plyr_fname	VARCHAR(25)		NOT NULL,
+    plyr_lname	VARCHAR(40)		NOT NULL,
+    plyr_email	VARCHAR(70),
+    
+    PRIMARY KEY (plyr_id)
+);
+
+=========================================================================================
+
+3) Create the Course table
+
+CREATE TABLE Course(
+    course_id		INTEGER		AUTO_INCREMENT	NOT NULL,
+    course_name		VARCHAR(50)	NOT NULL,
+    course_street	VARCHAR(50),
+    course_city		VARCHAR(30),
+    course_state	CHAR(2)		NOT NULL,
+    course_zip		VARCHAR(15),
+    course_numholes	CHAR(2)		NOT NULL,
+    
+    PRIMARY KEY(course_id)    
+);
+
+=========================================================================================
+
+4) Create the Round table
+
+CREATE TABLE Round(
+    rnd_id	INTEGER		AUTO_INCREMENT	NOT NULL,
+    course_id	INTEGER		NOT NULL,
+    rnd_date	DATE		NOT NULL,
+    rnd_time	TIMESTAMP	NOT NULL,
+    
+    PRIMARY KEY(rnd_id),
+    FOREIGN KEY(course_id) REFERENCES Course(course_id)
+);
+
+
+=========================================================================================
+
+5) Create the Scorecard table
+
+CREATE TABLE Scorecard(
+    sc_id	INTEGER		AUTO_INCREMENT	NOT NULL,
+    plyr_id	INTEGER		NOT NULL,
+    rnd_id	INTEGER		NOT NULL,
+    
+    PRIMARY KEY(sc_id),
+    FOREIGN KEY(plyr_id) REFERENCES Player(plyr_id),
+    FOREIGN KEY(rnd_id)	 REFERENCES Round(rnd_id)    
+);
+
+
+=========================================================================================
+
+6) Create the Hole table
+
+CREATE TABLE Hole(
+    hole_id	INTEGER		AUTO_INCREMENT	NOT NULL,
+    course_id	INTEGER		NOT NULL,
+    hole_num	CHAR(2)		NOT NULL,
+    hole_par	INTEGER		NOT NULL,
+    hole_hndcp	INTEGER		NOT NULL,
+    
+    PRIMARY KEY (hole_id),
+    FOREIGN KEY (course_id) REFERENCES Course(course_id)
+);
+
+
+=========================================================================================
+
+7) Create the Yardage table
+
+CREATE TABLE Yardage(	
+    yd_id		INTEGER		AUTO_INCREMENT	NOT NULL,
+    yd_difficulty	CHAR(1)		NOT NULL,
+    yd_distance		INTEGER		NOT NULL,
+    hole_id		INTEGER		NOT NULL,
+    
+    PRIMARY KEY(yd_id),
+    FOREIGN KEY(hole_id) REFERENCES Hole(hole_id)    
+);
+
+
+=========================================================================================
+
+8) Create the HoleScore table
+
+CREATE TABLE HoleScore(
+    hs_id	INTEGER		AUTO_INCREMENT	NOT NULL,
+    sc_id	INTEGER		NOT NULL,
+    hole_id	INTEGER		NOT NULL,
+    hs_score	INTEGER		NOT NULL,
+    hs_putts	INTEGER,
+    
+    PRIMARY KEY(hs_id),
+    FOREIGN KEY(sc_id) 	 REFERENCES Scorecard(sc_id),
+    FOREIGN KEY(hole_id) REFERENCES Hole(hole_id)
+);
