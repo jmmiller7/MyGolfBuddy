@@ -12,9 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton startRoundBtn;
+    ImageButton startNewRoundBtn;
     ImageButton savedRoundsBtn;
     ImageButton myStatsBtn;
 
@@ -22,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startRoundBtn = (ImageButton) this.findViewById(R.id.startRoundBtn);
-        startRoundBtn.setOnClickListener(buttonListener);
-        startRoundBtn.setOnTouchListener(new ButtonHighlighterOnTouchListener(startRoundBtn));
+        startNewRoundBtn = (ImageButton) this.findViewById(R.id.startNewRoundBtn);
+        startNewRoundBtn.setOnClickListener(buttonListener);
+        startNewRoundBtn.setOnTouchListener(new ButtonHighlighterOnTouchListener(startNewRoundBtn));
 
         savedRoundsBtn = (ImageButton) this.findViewById(R.id.savedRoundsBtn);
         savedRoundsBtn.setOnClickListener(buttonListener);
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         private void handleTouch(ImageButton imageButton){
 
             switch(imageButton.getId()){
-                case R.id.startRoundBtn:
+                case R.id.startNewRoundBtn:
                     Log.v("msg", "startRoundBtn pressed");
                     Intent intent = new Intent(imageButton.getContext(),
                             ScorecardOptionsActivity.class);

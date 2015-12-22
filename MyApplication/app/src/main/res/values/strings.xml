@@ -4,4 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_scorecard_options">Scorecard Options</string>
+    <string name="course_selector">Select a Course</string>
+    <string name="marker_selector">Select a tee marker</string>
+    <string name="title_activity_course_search">CourseSearch</string>
 </resources>

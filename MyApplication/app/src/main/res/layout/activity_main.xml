@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/button_vertical_margin"
         android:background="@drawable/newroundbtn"
-        android:id="@+id/startRoundBtn" />
+        android:id="@+id/startNewRoundBtn" />
 
     <ImageButton
         android:layout_width="wrap_content"

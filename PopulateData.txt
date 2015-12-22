@@ -1,0 +1,15 @@
+INSERT INTO Player (plyr_fname, plyr_lname, plyr_email)
+VALUES ('Jake', 'Miller', 'jmmiller7@charter.net);
+
+INSERT INTO `MyGolfBuddy`.`Player` (`plyr_id`, `plyr_fname`, `plyr_lname`, `plyr_email`) VALUES (NULL, 'Randy', 'Miller', 'rmiller11@charter.net');
+
+INSERT INTO Course (course_name, course_street, course_city, course_state, course_zip, course_numholes)
+VALUES ('Windwood of Watertown', 'W5710 County Road CW', 'Watertown', 'WI', '53098', 18);
+
+INSERT INTO `MyGolfBuddy`.`Course` (`course_id`, `course_name`, `course_street`, `course_city`, `course_state`, `course_zip`, `course_numholes`) VALUES (NULL, 'The Meadows of Sixmile Creek', '800 N Century Ave', 'Waunakee', 'WI', '53597', '18');
+
+INSERT INTO `MyGolfBuddy`.`Hole` (`hole_id`, `course_id`, `hole_num`, `hole_par`, `hole_hndcp`) VALUES (NULL, '1', '1', '4', '5'), (NULL, '1', '2', '5', '1'), (NULL, '1', '3', '3', '15'), (NULL, '1', '4', '4', '7'), (NULL, '1', '5', '4', '9'), (NULL, '1', '6', '4', '11'), (NULL, '1', '7', '3', '17'), (NULL, '1', '8', '4', '13'), (NULL, '1', '9', '5', '5'), (NULL, '1', '10', '5', '6'), (NULL, '1', '11', '4', '8'), (NULL, '1', '12', '5', '2'), (NULL, '1', '13', '3', '18'), (NULL, '1', '14', '3', '14'), (NULL, '1', '15', '5', '4'), (NULL, '1', '16', '4', '10'), (NULL, '1', '17', '3', '16'), (NULL, '1', '18', '4', '4');
+
+INSERT INTO `MyGolfBuddy`.`Yardage` (`yd_id`, `yd_difficulty`, `yd_distance`, `hole_id`) VALUES (NULL, '1', '394', '1'), (NULL, '1', '518', '2'), (NULL, '1', '153', '3'), (NULL, '1', '411', '4'), (NULL, '1', '380', '5'), (NULL, '1', '308', '6'), (NULL, '1', '151', '7'), (NULL, '1', '324', '8'), (NULL, '1', '432', '9'), (NULL, '1', '472', '10'), (NULL, '1', '377', '11'), (NULL, '1', '551', '12'), (NULL, '1', '171', '13'), (NULL, '1', '192', '14'), (NULL, '1', '523', '15'), (NULL, '1', '330', '16'), (NULL, '1', '175', '17'), (NULL, '1', '360', '18');
+ 
+INSERT INTO `MyGolfBuddy`.`HoleScore` (`hs_id`, `sc_id`, `hole_id`, `hs_score`, `hs_putts`) VALUES (NULL, '1', '1', '5', NULL), (NULL, '1', '2', '5', NULL), (NULL, '1', '3', '4', NULL), (NULL, '1', '4', '5', NULL), (NULL, '1', '5', '4', NULL), (NULL, '1', '6', '4', NULL), (NULL, '1', '7', '3', NULL), (NULL, '1', '8', '4', NULL), (NULL, '1', '9', '5', NULL), (NULL, '1', '10', '4', NULL), (NULL, '1', '11', '4', NULL), (NULL, '1', '12', '6', NULL), (NULL, '1', '13', '3', NULL), (NULL, '1', '14', '4', NULL), (NULL, '1', '15', '5', NULL), (NULL, '1', '16', '5', NULL), (NULL, '1', '17', '3', NULL), (NULL, '1', '18', '5', NULL);
