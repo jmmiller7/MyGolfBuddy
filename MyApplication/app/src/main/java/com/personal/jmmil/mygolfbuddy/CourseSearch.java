@@ -1,18 +1,50 @@
 package com.personal.jmmil.mygolfbuddy;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
 
-public class CourseSearch extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class CourseSearch extends Activity {
+
+    EditText searchEditText;
+    ImageButton searchButton;
+    ListView listView;
+    ArrayList<Course> courseList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_search);
-        
+
+        searchEditText = (EditText) findViewById(R.id.searchEditText);
+
+        searchButton = (ImageButton) findViewById(R.id.searchImageButton);
+        searchButton.setOnClickListener(searchButtonListener);
+
+        listView = (ListView) findViewById(R.id.list);
+
+        courseList = new ArrayList<>();
     }
+
+    private OnClickListener searchButtonListener = new OnClickListener(){
+
+        public void onClick(View v) {
+            MyGolfBuddyAPI api = new MyGolfBuddyAPI();
+            courseList = api.getCourseList();
+
+            String size = "Size: " + courseList.size();
+            Log.v("List count", size);
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,4 +67,6 @@ public class CourseSearch extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
