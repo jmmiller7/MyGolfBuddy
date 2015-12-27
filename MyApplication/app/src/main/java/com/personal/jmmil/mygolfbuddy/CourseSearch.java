@@ -1,24 +1,29 @@
 package com.personal.jmmil.mygolfbuddy;
 
-import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.internal.view.menu.MenuView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CourseSearch extends Activity {
+public class CourseSearch extends ListActivity {
 
     EditText searchEditText;
     ImageButton searchButton;
-    ListView listView;
     ArrayList<Course> courseList;
+    CourseAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,19 +35,23 @@ public class CourseSearch extends Activity {
         searchButton = (ImageButton) findViewById(R.id.searchImageButton);
         searchButton.setOnClickListener(searchButtonListener);
 
-        listView = (ListView) findViewById(R.id.list);
-
         courseList = new ArrayList<>();
+
+        adapter = new CourseAdapter(this, R.layout.list_item, courseList);
+
+        setListAdapter(adapter);
     }
 
     private OnClickListener searchButtonListener = new OnClickListener(){
 
         public void onClick(View v) {
             MyGolfBuddyAPI api = new MyGolfBuddyAPI();
-            courseList = api.getCourseList();
 
-            String size = "Size: " + courseList.size();
-            Log.v("List count", size);
+            //courseList = api.getCourseList();
+
+            courseList = api.searchCourse(searchEditText.getText().toString());
+
+            adapter.swapList(courseList);
         }
     };
 
@@ -67,6 +76,4 @@ public class CourseSearch extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|fill_horizontal"
             android:layout_weight="1"
-            android:id="@+id/tagEditText"
+            android:id="@+id/searchEditText"
             android:textColor="@color/text_light_gray"
             android:text="@string/course_selector"
             android:inputType="text"
@@ -38,7 +38,7 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/list"
+        android:id="@android:id/list"
         android:layout_weight="1" />
 
 
