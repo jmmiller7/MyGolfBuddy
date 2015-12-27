@@ -1,20 +1,21 @@
 package com.personal.jmmil.mygolfbuddy;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class ScorecardOptionsActivity extends AppCompatActivity {
 
     ImageButton searchImageButton;
-    EditText searchEditText;
+    TextView courseTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class ScorecardOptionsActivity extends AppCompatActivity {
         searchImageButton = (ImageButton) this.findViewById(R.id.searchImageButton);
         searchImageButton.setOnClickListener(searchButtonListener);
 
-        searchEditText = (EditText) this.findViewById(R.id.searchEditText);
+        courseTextView = (TextView) this.findViewById(R.id.courseTextView);
     }
 
     @Override
@@ -37,9 +38,8 @@ public class ScorecardOptionsActivity extends AppCompatActivity {
     public OnClickListener searchButtonListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(v.getContext(),
-                    CourseSearch.class);
-            startActivity(intent);
+            Intent intent = new Intent(v.getContext(), CourseSearch.class);
+            startActivityForResult(intent, 1);
         }
     };
 
@@ -56,5 +56,27 @@ public class ScorecardOptionsActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                int result = data.getIntExtra("course_id",0);
+                populateTeeList(result);
+
+                courseTextView.setText(data.getStringExtra("course_name"));
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }
+
+    private void populateTeeList(int courseId){
+
+
+
     }
 }

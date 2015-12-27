@@ -7,4 +7,5 @@
     <string name="course_selector">Select a Course</string>
     <string name="marker_selector">Select a tee marker</string>
     <string name="title_activity_course_search">CourseSearch</string>
+    <string name="no_course_selected">No course selected</string>
 </resources>

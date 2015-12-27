@@ -16,21 +16,22 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/button_vertical_margin">
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|fill_horizontal"
             android:layout_weight="1"
-            android:id="@+id/searchEditText"
-            android:textColor="@color/text_light_gray"
-            android:text="@string/course_selector"
+            android:id="@+id/courseTextView"
+            android:textColor="@color/white"
+            android:text="@string/no_course_selected"
             android:inputType="text"
             android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:autoText="false" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/searchImageButton"
             android:cropToPadding="false"
             android:src="@android:drawable/ic_search_category_default"
