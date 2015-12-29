@@ -1,4 +1,4 @@
-package com.personal.jmmil.mygolfbuddy;
+package com.personal.jmmil.mygolfbuddy.API;
 
 import java.io.IOException;
 import java.io.InputStream;

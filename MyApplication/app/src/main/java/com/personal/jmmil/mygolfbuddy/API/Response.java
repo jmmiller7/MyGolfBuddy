@@ -1,4 +1,4 @@
-package com.personal.jmmil.mygolfbuddy;
+package com.personal.jmmil.mygolfbuddy.API;
 
 import java.util.ArrayList;
 

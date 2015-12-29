@@ -1,4 +1,4 @@
-package com.personal.jmmil.mygolfbuddy;
+package com.personal.jmmil.mygolfbuddy.API;
 
 import java.util.ArrayList;
 import android.content.Context;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
+
+import com.personal.jmmil.mygolfbuddy.CourseSearch;
+import com.personal.jmmil.mygolfbuddy.R;
 
 public class CourseAdapter extends ArrayAdapter<Course> {
 

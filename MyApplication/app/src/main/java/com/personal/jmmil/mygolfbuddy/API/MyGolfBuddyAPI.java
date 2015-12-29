@@ -1,4 +1,4 @@
-package com.personal.jmmil.mygolfbuddy;
+package com.personal.jmmil.mygolfbuddy.API;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -13,8 +13,8 @@ import java.util.concurrent.ExecutionException;
 
 public class MyGolfBuddyAPI {
 
-    //private static String BASE_URL = "http://10.57.78.100/android_connect/";
-    private static String BASE_URL = "http://192.168.43.83:1234/android_connect/";
+    //private static String BASE_URL = "http://10.57.78.100/mygolfbuddy/";
+    private static String BASE_URL = "http://192.168.43.83:1234/mygolfbuddy/";
 
     HttpURLConnection urlConnection = null;
 
@@ -52,7 +52,7 @@ public class MyGolfBuddyAPI {
 
 
     public static void setBaseUrl(String addr){
-        BASE_URL = "http://" + addr + "/android_connect/";
+        BASE_URL = "http://" + addr + "/mygolfbuddy/";
         Log.v("BaseURL",BASE_URL);
     }
 

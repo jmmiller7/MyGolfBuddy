@@ -6,6 +6,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+
+import com.personal.jmmil.mygolfbuddy.API.Course;
+import com.personal.jmmil.mygolfbuddy.API.CourseAdapter;
+import com.personal.jmmil.mygolfbuddy.API.MyGolfBuddyAPI;
+
 import java.util.ArrayList;
 
 
