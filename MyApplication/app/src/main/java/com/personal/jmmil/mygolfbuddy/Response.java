@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Response {
     //private String numFound;
-    private ArrayList<Course> products;
+    private ArrayList<Course> courses;
 
     @Override
     public String toString() {
-        return products.toString();
+        return courses.toString();
     }
     public ArrayList getDocs(){
-        return products;
+        return courses;
     }
 }
