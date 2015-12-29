@@ -7,17 +7,18 @@ import java.io.Reader;
 import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.personal.jmmil.mygolfbuddy.API.DatabaseObjects.Course;
 
 public class CourseToObj {
 
-    public static ArrayList<Course> parseresponse(InputStream response)throws IOException{
+    public ArrayList<Course> parseresponse(InputStream response)throws IOException{
 
         try{
             Reader reader = new InputStreamReader(response, "UTF-8");
 
             Gson gson = new GsonBuilder().create();
-            Response p = gson.fromJson(reader, Response.class);
 
+            CourseResponse p = gson.fromJson(reader, CourseResponse.class);
 
             ArrayList<Course> courses = p.getDocs();
 

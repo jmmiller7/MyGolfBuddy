@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
+import com.personal.jmmil.mygolfbuddy.API.DatabaseObjects.Course;
 import com.personal.jmmil.mygolfbuddy.CourseSearch;
 import com.personal.jmmil.mygolfbuddy.R;
 
@@ -29,7 +30,7 @@ public class CourseAdapter extends ArrayAdapter<Course> {
 
         if (v == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.list_item, null);
+            v = inflater.inflate(R.layout.course_list_item, null);
         }
 
         Course course = courses.get(position);
@@ -43,7 +44,7 @@ public class CourseAdapter extends ArrayAdapter<Course> {
                courseName.setText(course.getCourse_name());
             }
             if (courseAddr != null){
-                courseAddr.setText(course.getStreet());
+                courseAddr.setText(course.getCourse_street());
             }
         }
 

@@ -4,17 +4,29 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.personal.jmmil.mygolfbuddy.API.CourseAdapter;
+import com.personal.jmmil.mygolfbuddy.API.DatabaseObjects.Yardage;
+import com.personal.jmmil.mygolfbuddy.API.DatabaseObjects.YardageAdapter;
+import com.personal.jmmil.mygolfbuddy.API.MyGolfBuddyAPI;
+
+import java.util.ArrayList;
 
 public class ScorecardOptionsActivity extends AppCompatActivity {
 
     ImageButton searchImageButton;
     TextView courseTextView;
+    Spinner teeMarkerSpinner;
+    String course_name;
+    int course_id;
 
 
     @Override
@@ -26,6 +38,8 @@ public class ScorecardOptionsActivity extends AppCompatActivity {
         searchImageButton.setOnClickListener(searchButtonListener);
 
         courseTextView = (TextView) this.findViewById(R.id.courseTextView);
+
+        teeMarkerSpinner = (Spinner) this.findViewById(R.id.teeMarkerSpinner);
     }
 
     @Override
@@ -63,10 +77,11 @@ public class ScorecardOptionsActivity extends AppCompatActivity {
 
         if (requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
-                int result = data.getIntExtra("course_id",0);
-                populateTeeList(result);
+                course_id = data.getIntExtra("course_id",0);
+                populateTeeList(course_id);
 
-                courseTextView.setText(data.getStringExtra("course_name"));
+                course_name = data.getStringExtra("course_name");
+                courseTextView.setText(course_name);
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 //Write your code if there's no result
@@ -75,8 +90,15 @@ public class ScorecardOptionsActivity extends AppCompatActivity {
     }
 
     private void populateTeeList(int courseId){
+        MyGolfBuddyAPI api = new MyGolfBuddyAPI();
+        ArrayList<Yardage> teeList = api.getCourseTees(courseId);
 
+        for(Yardage yrd : teeList)
+            Log.v("Yardage", yrd.getYd_difficulty());
 
-
+        YardageAdapter adapter = new YardageAdapter(this, R.layout.tee_list_item, teeList);
+        Log.v("Adapter", adapter.toString());
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        teeMarkerSpinner.setAdapter(adapter);
     }
 }

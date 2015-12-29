@@ -7,7 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
-import com.personal.jmmil.mygolfbuddy.API.Course;
+import com.personal.jmmil.mygolfbuddy.API.DatabaseObjects.Course;
 import com.personal.jmmil.mygolfbuddy.API.CourseAdapter;
 import com.personal.jmmil.mygolfbuddy.API.MyGolfBuddyAPI;
 
@@ -33,7 +33,7 @@ public class CourseSearch extends ListActivity {
 
         courseList = new ArrayList<>();
 
-        adapter = new CourseAdapter(this, R.layout.list_item, courseList);
+        adapter = new CourseAdapter(this, R.layout.course_list_item, courseList);
 
         setListAdapter(adapter);
 
